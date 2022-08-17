@@ -1,0 +1,25 @@
+<h2>Flats(<%=@flats.count%>)</h2>
+<div class="main-container">
+<div class = "cards">
+<% @flats.each do |flat| %>
+  <div class="card-trip">
+  <img src="https://loremflickr.com/320/240/<%=flat.address.split(' ').last%>"/>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%=flat.name%></h2>
+      <p><%=flat.description.first(200)%>...</p>
+    </div>
+  </div>
+  <div class="card-trip-icones">
+    <i class="fa-solid fa-people-line m-2"> <%=flat.number_of_guests%></i>
+    <i class="fa-solid fa-money-bill-transfer m-2"> <%=flat.price_per_night%>€</i>
+  </div>
+  <div class="text-center mb-2">
+    <strong><%= link_to "More infos", flat_path(flat) %></strong>
+    <strong><%= link_to "Edit", flat_path(flat) %></strong>
+    <strong><%= link_to "Remove", flat_path(flat) %></strong>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
